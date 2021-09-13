@@ -11,9 +11,9 @@
 `define	NOR  6'b100111 	// Salida-> A nor B
 
 
-module modulo_combinacional_alu
+module ALU
 #( // Parámetros:
-     parameter   NBITS  = 8
+     parameter   NBITS  = 8,
      parameter   COD_OP = 6
 )
  (
@@ -30,12 +30,11 @@ module modulo_combinacional_alu
 	begin : operaciones
         case(cod_operacion)
             `ADD : ALU_Result = operando_A + operando_B;
-	    `SUB : ALU_Result = operando_A - operando_B;
+	        `SUB : ALU_Result = operando_A - operando_B;
             `AND : ALU_Result = operando_A & operando_B;
             `OR  : ALU_Result = operando_A | operando_B;
             `XOR : ALU_Result = operando_A ^ operando_B;
-            
-            
+            default  :   ALU_Result   =   {NBITS{1'b1}};
         endcase
 	end
 

@@ -7,7 +7,7 @@ module Top
 )
 (   // Entradas:
     input wire              clk,      // Clock
-    input wire [2,0]        pulsador, // Son los switches que eligen si se ingresan datos o una operacion
+    input wire [2:0]        pulsador, // Son los switches que eligen si se ingresan datos o una operacion
     input wire [NBITS-1:0]  entrada,  //Bus de entrada que muestra los operandos o el codigo de operacion
     
     // Salidas:
@@ -27,7 +27,7 @@ module Top
     
     
     // Instancio al módulo de la ALU:
-    alu alu_0 ( 
+    ALU alu_0 ( 
         .operando_A(inA),
         .operando_B(inB),
         .cod_operacion(cod_op),
