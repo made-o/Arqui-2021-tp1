@@ -1,4 +1,4 @@
-//`timescale 1ns / 1ps
+`timescale 1ns / 1ps
 
 // Definicion de Macros para manipular mejor las operaciones:
 `define ADD  6'b100000  // Salida-> A + B
@@ -13,7 +13,7 @@
 
 module ALU
 #( // Parámetros:
-     parameter   NBITS  = 8,
+     parameter   NBITS = 8,
      parameter   COD_OP = 6
 )
  (

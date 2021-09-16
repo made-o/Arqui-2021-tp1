@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module Top_tb();
 
     //Local parameters
@@ -17,88 +18,88 @@ module Top_tb();
 
         i_clock = 1'b0;
         
-        #20//a
+        #10//a
       	entrada	= 8'b00000100;
         #20
       	pulsador = 3'b001;
-      	#20
+      	#10
       	pulsador = 3'b000;
       	
-      	#20//b
+      	#10//b
       	entrada	= 8'b00000101;
 		#20
       	pulsador = 3'b010;
-      	#20
+      	#10
       	pulsador =	3'b000;
       	
-      	#20//suma
+      	#10//suma
       	entrada	=	8'b00100000;
         #20
       	pulsador =	3'b100;
-      	#20
+      	#10
       	pulsador = 3'b000;
       	
-      	#20//resta
+      	#10//resta
       	entrada	= 8'b00100010;
         #20
       	pulsador = 3'b100;
-      	#20
+      	#10
       	pulsador = 3'b000;
       	
-      	#20// and
+      	#10// and
       	entrada	 = 8'b00100100;
         #20
       	pulsador = 3'b100;
-      	#20
+      	#10
       	pulsador = 3'b000;
       	
-      	#20// or
+      	#10// or
       	entrada	 = 8'b00100101;
         #20
       	pulsador = 3'b100;
-      	#20
+      	#10
       	pulsador = 3'b000;
       	
-      	#20// xor
+      	#10// xor
       	entrada	= 8'b00100110;
       	#20
       	pulsador = 3'b100;
-      	#20
+      	#10
       	pulsador = 3'b000;
         
-        #20//a
+        #10//a
       	entrada	= 8'b00001001;
         #20
       	pulsador = 3'b001;
-      	#20
+      	#10
       	pulsador = 3'b000;
       	
-      	#20//b
+      	#10//b
       	entrada	= 8'b00000010;
 		#20
       	pulsador = 3'b010;
-      	#20
+      	#10
       	pulsador =	3'b000;
         
-        #20//SRA
+        #10//SRA
       	entrada	= 8'b00000011;
         #20
       	pulsador = 3'b100;
-      	#20
+      	#10
       	pulsador = 3'b000;
       	
-      	#20//SRL
+      	#10//SRL
       	entrada	= 8'b00000010;
 		#20
       	pulsador = 3'b100;
-      	#20
+      	#10
       	pulsador =	3'b000;
         
-        #20//NOR
+        #10//NOR
       	entrada	= 8'b00100111;
         #20
       	pulsador = 3'b100;
-      	#20
+      	#10
       	pulsador = 3'b000;
       
       
@@ -108,7 +109,7 @@ module Top_tb();
 
     always 
         begin
-            #1
+            #10
             i_clock = ~i_clock;
         end
 

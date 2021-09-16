@@ -18,7 +18,7 @@ module Tp1_tb_auto();
   
   integer index_op;
   
-  reg [nBitsOp-1:0] cod_op_array [nbits-1:0];
+  reg [nBitsOp:0] cod_op_array [nbits:0];
   
   wire [nbits-1:0] dato_result;
   
@@ -40,6 +40,7 @@ module Tp1_tb_auto();
     cod_op_array [5] = 6'b000011 ; // SRA
     cod_op_array [6] = 6'b000010 ; // SRL 
     cod_op_array [7] = 6'b100111 ; // NOR
+    cod_op_array [8] = 6'b000000 ; // operacion invalida
     
     $dumpfile("dump.vcd"); 
     $dumpvars;
@@ -57,8 +58,8 @@ module Tp1_tb_auto();
   //Module instance 
    ALU
     #(
-      .NBITS (nbits),
-      .COD_OP (nBitsOp)
+      .NBITS(nbits),
+      .COD_OP(nBitsOp)
      )
     ALU
     (
@@ -75,10 +76,10 @@ module Tp1_tb_auto();
   //Random Data
   always @(posedge clk)
   begin
-    operando_A <= $urandom() % 100;
-    operando_B <= $urandom() % 100;
+    operando_A <= $urandom() % 256;
+    operando_B <= $urandom() % 256;
     cod_operacion <= cod_op_array[index_op];
-    if(index_op < 7)begin
+    if(index_op < 8)begin
     	index_op <= index_op + 1; 
     end else begin
       index_op <= 0;
@@ -106,7 +107,7 @@ module Tp1_tb_auto();
           begin
             if(dato_result != (operando_A - operando_B))
             begin
-              $error("Error en la Suma!");
+              $error("Error en la Resta!");
               $display("############# Test Resta FALLO ############");
               $finish();
             end
@@ -116,7 +117,7 @@ module Tp1_tb_auto();
           begin
             if(dato_result != (operando_A & operando_B))
             begin
-              $error("Error en la Suma!");
+              $error("Error en AND!");
               $display("############# Test AND FALLO ############");
               $finish();
             end
@@ -126,7 +127,7 @@ module Tp1_tb_auto();
           begin
             if(dato_result != (operando_A | operando_B))
             begin
-              $error("Error en la Suma!");
+              $error("Error en OR!");
               $display("############# Test OR FALLO ############");
               $finish();
             end
@@ -136,7 +137,7 @@ module Tp1_tb_auto();
           begin
             if(dato_result != (operando_A ^ operando_B))
             begin
-              $error("Error en la Suma!");
+              $error("Error en XOR!");
               $display("############# Test XOR FALLO ############");
               $finish();
             end
@@ -146,7 +147,7 @@ module Tp1_tb_auto();
           begin
             if(dato_result != (operando_A >>> operando_B))
             begin
-              $error("Error en la Suma!");
+              $error("Error en >>>!");
               $display("############# Test >>> FALLO ############");
               $finish();
             end
@@ -156,7 +157,7 @@ module Tp1_tb_auto();
           begin
             if(dato_result != (operando_A >> operando_B))
             begin
-              $error("Error en la Suma!");
+              $error("Error en  >> !");
               $display("############# Test >> FALLO ############");
               $finish();
             end
@@ -166,8 +167,18 @@ module Tp1_tb_auto();
           begin
             if(dato_result != (~(operando_A | operando_B)))
             begin
-              $error("Error en la Suma!");
+              $error("Error en NOR!");
               $display("############# Test NOR FALLO ############");
+              $finish();
+            end
+          end
+          
+         6'b000000:
+          begin
+            if(dato_result != {nbits{1'b1}})
+            begin
+              $error("Error operacion invalida!");
+              $display("############# Test operacion invalida FALLO ############");
               $finish();
             end
           end
