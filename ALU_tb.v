@@ -1,37 +1,17 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 15.09.2021 23:31:22
-// Design Name: 
-// Module Name: ALU_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module ALU_tb();
-
-
-    //Local parameters
+    
+    //Local parameters:
     localparam              nbits = 8;
+    
     // Entradas:
     reg signed [nbits-1:0]  operando_A;    // registro A
     reg signed [nbits-1:0]  operando_B;    // registro B
-    reg signed [6-1:0] cod_operacion; // la operacion a realizar
+    reg signed [6-1:0] cod_operacion;      // la operacion a realizar
      
     // Salidas:
-    wire signed [nbits-1:0]  ALU_Result; // ALU Output  
+    wire signed [nbits-1:0]  ALU_Result;   // ALU Output  
 
 
     initial begin
@@ -124,6 +104,8 @@ module ALU_tb();
         $finish;
     end
 
+    
+    // Se instancia módulo:
     ALU
     #(
       .NBITS							(nbits),
@@ -136,6 +118,8 @@ module ALU_tb();
       	.cod_operacion                  (cod_operacion),
       	.ALU_Result					    (ALU_Result)
     );
+    
+  // Impresión de datos en consola:
   initial $monitor($time,operando_A,operando_B,cod_operacion,ALU_Result);
 
 endmodule
