@@ -89,6 +89,36 @@ module ALU_tb();
       	
       	#20
       	cod_operacion	=	6'b000000;
+      	
+      	#20//SRA
+      	operando_A	=	8'b00001100;
+        #20
+      	operando_B	=	8'b00000010;
+      	#20
+      	cod_operacion	=	6'b000011;
+      	
+      	#20
+      	cod_operacion	=	6'b000000;
+      	
+      	#20//SRL
+      	operando_A	=	8'b00001100;
+        #20
+      	operando_B	=	8'b00000011;
+      	#20
+      	cod_operacion	=	6'b000010;
+      	
+      	#20
+      	cod_operacion	=	6'b000000;
+      	
+      	#20//NOR
+      	operando_A	=	8'b00000100;
+        #20
+      	operando_B	=	8'b00001100;
+      	#20
+      	cod_operacion	=	6'b100111;
+      	
+      	#20
+      	cod_operacion	=	6'b000000;
         
         #100
         $finish;

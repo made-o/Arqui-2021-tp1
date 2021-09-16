@@ -34,6 +34,9 @@ module ALU
             `AND : ALU_Result = operando_A & operando_B;
             `OR  : ALU_Result = operando_A | operando_B;
             `XOR : ALU_Result = operando_A ^ operando_B;
+            `SRA : ALU_Result = operando_A >>> operando_B;
+			`SRL : ALU_Result = operando_A >> operando_B;
+			`NOR : ALU_Result = ~(operando_A | operando_B);
             default  :   ALU_Result   =   {NBITS{1'b1}};
         endcase
 	end
