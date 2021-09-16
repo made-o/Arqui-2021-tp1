@@ -27,10 +27,10 @@ module Top
     always  @(posedge clk)
     begin : seleccion
         case(pulsador)
-            3'b001 : op_A   = entrada;
-            3'b010 : op_B   = entrada;
+            3'b001 : inA   = entrada;
+            3'b010 : inB   = entrada;
             3'b100 : cod_op = entrada[5:0];  //El codigo de operacion solo ocupa los 6 bits menos significativos del bus de entrada
-            default : ;
+            default : cod_op = 6'b000000;
         endcase
         
         if(btn_Reset) // Reseteo de entradas y código de operación:
