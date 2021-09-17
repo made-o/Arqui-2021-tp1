@@ -7,12 +7,12 @@ module ALU_tb();
     localparam nBitsOp = 6;
     
     // Entradas:
-    reg signed  [nbits-1:0]   operando_A;    // registro A
-    reg signed  [nbits-1:0]   operando_B;    // registro B
-    reg signed  [nBitsOp-1:0] cod_operacion; // la operacion a realizar
+    reg [nbits-1:0]   operando_A;    // registro A
+    reg [nbits-1:0]   operando_B;    // registro B
+    reg [nBitsOp-1:0] cod_operacion; // la operacion a realizar
      
     // Salidas:
-    wire signed [nbits-1:0]  ALU_Result;   // ALU Output  
+    wire [nbits-1:0]  ALU_Result;   // ALU Output  
 
 
     initial begin

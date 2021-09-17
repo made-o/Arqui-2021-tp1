@@ -18,12 +18,12 @@ module ALU
 )
  (
      // Entradas:
-     input wire signed [NBITS-1:0]  operando_A,    // registro A
-     input wire signed [NBITS-1:0]  operando_B,    // registro B
-     input wire signed [COD_OP-1:0] cod_operacion, // la operación a realizar
-     
+     input wire [NBITS-1:0]  operando_A,    // registro A
+     input wire [NBITS-1:0]  operando_B,    // registro B
+     input wire [COD_OP-1:0] cod_operacion, // la operación a realizar
+    
      // Salidas:
-     output reg signed [NBITS-1:0]  ALU_Result // ALU Output        
+     output reg [NBITS-1:0]  ALU_Result // ALU Output        
 );
     
     always @(*)

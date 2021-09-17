@@ -37,7 +37,7 @@ module Top
             default : cod_op = 6'b000000;
         endcase
         
-        if(btn_Reset) // Reseteo de entradas y código de operación:
+        if(btn_Reset) // Reseteo de entradas y código de operación: deberia estar al principio
         begin
             inA    = {NBITS {1'b0}};
             inB    = {NBITS {1'b0}};
